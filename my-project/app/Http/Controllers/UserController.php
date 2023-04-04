@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\TokenController;
 use App\Models\User;
 
 class UserController extends Controller
@@ -17,9 +17,11 @@ class UserController extends Controller
 #		$user->password = $request->input('password');
 #		$user->save();
 #		return response()->json(User::all());
-		$token = parent::createJWT();
-		#return 'Hello, World!';
+		$token_ctrl = new TokenController();
+		$token = $token_ctrl->createJWT();
+
 		return $token;
+#		return 'Hello, World!';
 #		return response()->;
 
 	}
